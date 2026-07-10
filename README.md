@@ -1,23 +1,18 @@
 # Moon Layout Core
 
-Moon Layout Core 是一个面向 MoonBit 生态的轻量图布局核心库，参考 ELK 的图模型思想和 JSON 交换方式，使用 MoonBit 原生类型系统重新实现。
+Moon Layout Core 是一个面向 MoonBit 生态的轻量图布局核心库。
 
-## 已完成
+## 当前能力
 
-- MoonBit 模块及许可证
-- `Point`、`Size`、`Node`、`Edge`、`Graph`
-- `LayoutAlgorithm`、`LayoutOptions`、`LayoutReport`
-- 图、节点、边和布局选项构造函数
-
-## Graph Model Example
+- 图模型和构造函数
+- 按节点 ID 查找节点及索引
+- 根节点候选识别
+- 重复节点 ID 检查
+- 边源节点、目标节点缺失检查
+- 对简化分层布局提供环状输入提示
 
 ```moonbit
-let graph = new_graph("demo")
-let graph = add_node(graph, new_node("start", 80.0, 40.0))
-let graph = add_node(graph, new_node("end", 80.0, 40.0))
-let graph = add_edge(graph, new_edge("e1", "start", "end"))
+let warnings = validate_graph(graph)
 ```
 
-## 下一步
-
-增加节点查找、重复 ID 与缺失端点校验。
+下一步将实现 Fixed 布局和基础边路由。
