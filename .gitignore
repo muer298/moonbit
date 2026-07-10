@@ -1,0 +1,19 @@
+# MoonBit / build outputs
+.moon/
+target/
+*.wasm
+*.wat
+*.js
+*.c
+*.o
+*.a
+
+# Editor / OS
+.DS_Store
+.vscode/
+.idea/
+
+# Local scratch
+.tmp/
+dist/
+coverage/
