@@ -1,0 +1,12 @@
+{
+  "id": "simple",
+  "children": [
+    { "id": "a", "width": 80, "height": 40 },
+    { "id": "b", "width": 80, "height": 40 },
+    { "id": "c", "width": 80, "height": 40 }
+  ],
+  "edges": [
+    { "id": "e1", "sources": ["a"], "targets": ["b"] },
+    { "id": "e2", "sources": ["b"], "targets": ["c"] }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "id": "tree-demo",
+  "children": [
+    { "id": "root", "width": 90, "height": 42 },
+    { "id": "left", "width": 90, "height": 42 },
+    { "id": "right", "width": 90, "height": 42 },
+    { "id": "leaf", "width": 90, "height": 42 }
+  ],
+  "edges": [
+    { "id": "e1", "sources": ["root"], "targets": ["left"] },
+    { "id": "e2", "sources": ["root"], "targets": ["right"] },
+    { "id": "e3", "sources": ["left"], "targets": ["leaf"] }
+  ]
+}

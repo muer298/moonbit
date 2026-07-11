@@ -1,0 +1,15 @@
+{
+  "id": "dag-demo",
+  "children": [
+    { "id": "fetch", "width": 100, "height": 44 },
+    { "id": "parse", "width": 100, "height": 44 },
+    { "id": "validate", "width": 100, "height": 44 },
+    { "id": "render", "width": 100, "height": 44 }
+  ],
+  "edges": [
+    { "id": "e1", "sources": ["fetch"], "targets": ["parse"] },
+    { "id": "e2", "sources": ["parse"], "targets": ["validate"] },
+    { "id": "e3", "sources": ["parse"], "targets": ["render"] },
+    { "id": "e4", "sources": ["validate"], "targets": ["render"] }
+  ]
+}
