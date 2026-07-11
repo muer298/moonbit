@@ -1,15 +1,17 @@
 # Moon Layout Core
 
-Moon Layout Core 是面向 MoonBit 的轻量图布局核心库。
+Moon Layout Core 已实现 Fixed、Grid 和简化 Layered DAG 三类布局核心逻辑。
 
-## 已实现布局
+## Simplified Layered DAG
 
-### Fixed
+当前实现使用有界松弛计算近似最长路径层级，然后按照“层级 + 层内顺序”放置节点。算法适合有向无环图和小型流程图。
 
-保留节点已有坐标并生成基础边路线。
+明确不包含：
 
-### Grid / Box
+- 完整交叉最小化
+- 端口约束与标签布局
+- 复合节点
+- ELK Layered 的全部策略
+- 复杂正交边路由
 
-按节点输入顺序进行行优先网格排列，支持设置列数、原点和水平/垂直间距。该算法具有确定性，适合作为无结构图的默认布局和调试兜底方案。
-
-下一步将实现简化 Layered DAG 布局。
+下一步将补充 Tree 包装器和统一布局入口。
