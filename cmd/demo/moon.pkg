@@ -1,0 +1,7 @@
+import {
+  "yourname/moon-layout-core" @layout,
+}
+
+options(
+  "is-main": true,
+)
