@@ -1,17 +1,18 @@
 # Moon Layout Core
 
-Moon Layout Core 已实现 Fixed、Grid 和简化 Layered DAG 三类布局核心逻辑。
+Moon Layout Core 现在提供统一的布局入口：
 
-## Simplified Layered DAG
+```moonbit
+let report = layout(graph, layered_options())
+```
 
-当前实现使用有界松弛计算近似最长路径层级，然后按照“层级 + 层内顺序”放置节点。算法适合有向无环图和小型流程图。
+## 支持算法
 
-明确不包含：
+- `Fixed`：保留现有坐标
+- `Grid`：确定性网格排列
+- `Tree`：按有向边层级进行树形排列
+- `Layered`：简化 DAG 分层布局
 
-- 完整交叉最小化
-- 端口约束与标签布局
-- 复合节点
-- ELK Layered 的全部策略
-- 复杂正交边路由
+布局执行前会运行输入校验，并在 `LayoutReport` 中返回警告、变更节点数量和成功路由的边数量。
 
-下一步将补充 Tree 包装器和统一布局入口。
+下一步将增加 ELK JSON 子集导出和命令行演示。
