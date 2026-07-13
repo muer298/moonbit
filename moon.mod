@@ -1,0 +1,13 @@
+name = "yourname/moon-layout-core"
+
+version = "0.1.0"
+
+readme = "README.md"
+
+repository = "https://github.com/YOUR_GITHUB_USERNAME/moon-layout-core"
+
+license = "Apache-2.0"
+
+keywords = [ "graph", "layout", "elk-json", "visualization", "moonbit" ]
+
+description = "A lightweight graph layout core library for MoonBit, with an ELK JSON compatible subset."

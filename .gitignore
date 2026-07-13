@@ -1,5 +1,6 @@
 # MoonBit / build outputs
 .moon/
+_build/
 target/
 *.wasm
 *.wat

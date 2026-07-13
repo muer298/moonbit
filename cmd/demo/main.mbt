@@ -1,3 +1,4 @@
+///|
 fn main {
   let graph = @layout.new_graph("demo")
   let graph = @layout.add_node(graph, @layout.new_node("start", 80.0, 40.0))

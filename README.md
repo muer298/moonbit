@@ -16,11 +16,9 @@ Moon Layout Core 是一个面向 MoonBit 生态的轻量图布局核心库，目
 
 先把模块名替换成你自己的 MoonBit 用户名：
 
-```json
-// moon.mod.json
-{
-  "name": "yourname/moon-layout-core"
-}
+```toml
+# moon.mod
+name = "yourname/moon-layout-core"
 ```
 
 然后同步修改 `cmd/demo/moon.pkg` 里的 import 路径。

@@ -1,6 +1,7 @@
 ///| Public layout engine entry point.
 
-///| Run a layout algorithm and return a layout report.
+///|
+/// Run a layout algorithm and return a layout report.
 pub fn layout(graph : Graph, options : LayoutOptions) -> LayoutReport {
   let warnings = validate_graph(graph)
   match options.algorithm {
@@ -11,12 +12,14 @@ pub fn layout(graph : Graph, options : LayoutOptions) -> LayoutReport {
   }
 }
 
-///| Convenience API: run grid layout.
+///|
+/// Convenience API: run grid layout.
 pub fn layout_grid_default(graph : Graph) -> LayoutReport {
   layout(graph, grid_options(3))
 }
 
-///| Convenience API: run simplified layered layout.
+///|
+/// Convenience API: run simplified layered layout.
 pub fn layout_layered_default(graph : Graph) -> LayoutReport {
   layout(graph, layered_options())
 }

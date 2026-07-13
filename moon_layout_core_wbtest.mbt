@@ -1,5 +1,5 @@
-///| White-box tests for the MVP implementation.
-
+///|
+/// White-box tests for the MVP implementation.
 test "construct graph" {
   let graph = new_graph("g")
   let graph = add_node(graph, new_node("a", 80.0, 40.0))
@@ -9,6 +9,7 @@ test "construct graph" {
   assert_eq(graph.edges.length(), 1)
 }
 
+///|
 test "grid layout places nodes row major" {
   let graph = new_graph("grid")
   let graph = add_node(graph, new_node("a", 80.0, 40.0))
@@ -23,6 +24,7 @@ test "grid layout places nodes row major" {
   assert_eq(report.graph.nodes[2].y, 80.0)
 }
 
+///|
 test "layered layout follows edge direction" {
   let graph = new_graph("dag")
   let graph = add_node(graph, new_node("a", 80.0, 40.0))
@@ -36,6 +38,7 @@ test "layered layout follows edge direction" {
   assert_eq(report.graph.nodes[2].x, 240.0)
 }
 
+///|
 test "validation catches missing endpoint" {
   let graph = new_graph("bad")
   let graph = add_node(graph, new_node("a", 80.0, 40.0))
@@ -44,6 +47,7 @@ test "validation catches missing endpoint" {
   assert_eq(report.warnings.length(), 1)
 }
 
+///|
 test "fixed layout routes edge without moving nodes" {
   let graph = new_graph("fixed")
   let graph = add_node(graph, new_node_at("a", 80.0, 40.0, 10.0, 20.0))

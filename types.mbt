@@ -1,25 +1,35 @@
 ///| Basic geometry and graph model types for Moon Layout Core.
+
 ///|
+
 ///| The MVP intentionally keeps the public data model small and explicit.
+
 ///| Later versions can add ports, labels, hierarchy options and richer edge
+
 ///| routing without breaking the top-level `Graph -> Graph` layout workflow.
 
-///| A 2D point in layout coordinates.
+///|
+/// A 2D point in layout coordinates.
 pub(all) struct Point {
   x : Double
   y : Double
 } derive(Debug)
 
-///| A rectangular size.
+///|
+/// A rectangular size.
 pub(all) struct Size {
   width : Double
   height : Double
 } derive(Debug)
 
 ///| A graph node.
+
 ///|
+
 ///| `children` is included so that a future ELK JSON subset can represent
-///| nested graphs. The first MVP algorithms treat only top-level nodes.
+
+///|
+/// nested graphs. The first MVP algorithms treat only top-level nodes.
 pub(all) struct Node {
   id : String
   width : Double
@@ -29,7 +39,8 @@ pub(all) struct Node {
   children : Array[Node]
 } derive(Debug)
 
-///| A routed edge. `points` contains a simple polyline after layout.
+///|
+/// A routed edge. `points` contains a simple polyline after layout.
 pub(all) struct Edge {
   id : String
   source : String
@@ -37,14 +48,16 @@ pub(all) struct Edge {
   points : Array[Point]
 } derive(Debug)
 
-///| A graph with top-level nodes and edges.
+///|
+/// A graph with top-level nodes and edges.
 pub(all) struct Graph {
   id : String
   nodes : Array[Node]
   edges : Array[Edge]
 } derive(Debug)
 
-///| Supported MVP layout algorithms.
+///|
+/// Supported MVP layout algorithms.
 pub(all) enum LayoutAlgorithm {
   Fixed
   Grid
@@ -52,7 +65,8 @@ pub(all) enum LayoutAlgorithm {
   Layered
 } derive(Debug)
 
-///| Layout options shared by the MVP algorithms.
+///|
+/// Layout options shared by the MVP algorithms.
 pub(all) struct LayoutOptions {
   algorithm : LayoutAlgorithm
   origin_x : Double
@@ -62,7 +76,8 @@ pub(all) struct LayoutOptions {
   columns : Int
 } derive(Debug)
 
-///| Layout execution report.
+///|
+/// Layout execution report.
 pub(all) struct LayoutReport {
   graph : Graph
   warnings : Array[String]

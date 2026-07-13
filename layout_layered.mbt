@@ -1,12 +1,17 @@
 ///| Simplified layered DAG layout.
-///|
-///| This is not a full ELK Layered implementation. The MVP computes a rough
-///| longest-path layer by bounded relaxation, then places nodes by layer.
-///| Crossing minimization, ports, labels, compound graphs and advanced edge
-///| routing are explicit future work.
 
+///|
+
+///| This is not a full ELK Layered implementation. The MVP computes a rough
+
+///| longest-path layer by bounded relaxation, then places nodes by layer.
+
+///| Crossing minimization, ports, labels, compound graphs and advanced edge
+
+///|
+/// routing are explicit future work.
 fn compute_longest_path_levels(graph : Graph) -> Array[Int] {
-  let levels : Array[Int] = [for _node in graph.nodes => 0]
+  let levels : Array[Int] = [ for _node in graph.nodes => 0 ]
 
   // Bounded relaxation. On a DAG this converges to longest path levels.
   // On cyclic input it remains bounded by the node count and emits a warning.
@@ -26,19 +31,22 @@ fn compute_longest_path_levels(graph : Graph) -> Array[Int] {
   levels
 }
 
+///|
 fn layout_by_levels(
   graph : Graph,
   options : LayoutOptions,
   levels : Array[Int],
-  warnings : Array[String]
+  warnings : Array[String],
 ) -> LayoutReport {
   let nodes : Array[Node] = []
 
   for index, node in graph.nodes {
     let level = levels[index]
     let pos = position_in_level(levels, index)
-    let x = options.origin_x + level.to_double() * (node.width + options.spacing_x)
-    let y = options.origin_y + pos.to_double() * (node.height + options.spacing_y)
+    let x = options.origin_x +
+      level.to_double() * (node.width + options.spacing_x)
+    let y = options.origin_y +
+      pos.to_double() * (node.height + options.spacing_y)
     nodes.push({ ..node, x, y })
   }
 
@@ -51,10 +59,11 @@ fn layout_by_levels(
   }
 }
 
+///|
 fn layout_layered(
   graph : Graph,
   options : LayoutOptions,
-  warnings : Array[String]
+  warnings : Array[String],
 ) -> LayoutReport {
   let levels = compute_longest_path_levels(graph)
   let all_warnings = [..warnings, ..cycle_like_warning(graph)]
